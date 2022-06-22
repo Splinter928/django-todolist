@@ -1,7 +1,7 @@
 {% extends 'todo/base.html' %}
 
 {% block content %}
-    Current:
+    Completed:
     <ul>
         {% for todo in todos %}
         <li>
@@ -10,6 +10,7 @@
                 {{ todo.title }}
             {% if todo.important %} </b> {% endif %}
             {% if todo.memo %} - {{ todo.memo }}{% endif %}
+             - {{ todo.datecomleted|date:'j M H:i' }}
             </a>
         </li>
         {% endfor %}

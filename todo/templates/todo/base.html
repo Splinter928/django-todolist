@@ -1,5 +1,12 @@
 {% if user.is_authenticated %}
+    <a href="{% url 'todo:home' %}">Home</a>
+    <br>
     Hello, {{ user.username }}!
+
+    <a href="{% url 'todo:createtodo' %}">Create</a>
+    <a href="{% url 'todo:currenttodos' %}">Current</a>
+    <a href="{% url 'todo:completedtodos' %}">Completed</a>
+
     <form action="{% url 'todo:logoutuser' %}" method="POST">
         {% csrf_token %}
         {{ form.as_p }}
@@ -10,5 +17,5 @@
     <a href="{% url 'todo:loginuser' %}">Log in</a>
 {% endif %}
 <br>
-
+<br>
 {% block content %}{% endblock %}
